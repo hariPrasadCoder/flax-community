@@ -1,44 +1,45 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
-  showArrow?: boolean;
-  fullWidth?: boolean;
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }
 
-export const Button: React.FC<ButtonProps> = ({ 
-  children, 
-  variant = 'primary', 
-  showArrow = false, 
-  fullWidth = false,
-  className = '',
-  ...props 
-}) => {
-  const baseStyles = "inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 active:scale-95 tracking-wide relative overflow-hidden group";
-  
-  const variants = {
-    primary: "bg-white text-black hover:bg-gray-100 border border-transparent shadow-[0_0_20px_rgba(255,255,255,0.2)]",
-    secondary: "bg-surfaceHighlight text-white border border-white/10 hover:border-white/20 hover:bg-white/5",
-    outline: "bg-transparent text-gray-300 border border-white/10 hover:border-white/30 hover:text-white hover:bg-white/5",
-    ghost: "bg-transparent text-gray-400 hover:text-white hover:bg-white/5"
-  };
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+}
 
-  const widthClass = fullWidth ? "w-full" : "";
-
-  return (
-    <button 
-      className={`${baseStyles} ${variants[variant]} ${widthClass} ${className}`} 
-      {...props}
-    >
-      {variant === 'primary' && (
-        <div className="absolute inset-0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/50 to-transparent skew-x-12 opacity-50" />
-      )}
-      
-      <span className="relative z-10 flex items-center">
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = 'primary', size = 'md', children, ...props }, ref) => {
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          'inline-flex items-center justify-center rounded-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary/50 disabled:opacity-50 disabled:pointer-events-none cursor-pointer',
+          {
+            'bg-white text-black hover:bg-brand-accent hover:text-black shadow-[0_0_20px_rgba(255,255,255,0.1)]':
+              variant === 'primary',
+            'bg-brand-card text-white hover:bg-brand-terminal border border-white/10':
+              variant === 'secondary',
+            'border border-white/20 text-white hover:bg-white/5 hover:border-white/40':
+              variant === 'outline',
+            'text-brand-text hover:text-white': variant === 'ghost',
+            'h-9 px-4 text-xs tracking-widest uppercase': size === 'sm',
+            'h-11 px-6 text-sm tracking-widest uppercase': size === 'md',
+            'h-14 px-8 text-sm tracking-widest uppercase font-semibold': size === 'lg',
+          },
+          className
+        )}
+        {...props}
+      >
         {children}
-        {showArrow && <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />}
-      </span>
-    </button>
-  );
-};
+      </button>
+    );
+  }
+);
+
+Button.displayName = 'Button';
+
+export { Button, cn };

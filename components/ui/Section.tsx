@@ -8,8 +8,8 @@ interface SectionProps {
 
 export const Section: React.FC<SectionProps> = ({ children, className = "", id }) => {
   return (
-    <section id={id} className={`py-20 md:py-32 relative overflow-hidden ${className}`}>
-      <div className="container mx-auto px-6 relative z-10 max-w-7xl">
+    <section id={id} className={`py-24 md:py-32 relative overflow-hidden ${className}`}>
+      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
         {children}
       </div>
     </section>
