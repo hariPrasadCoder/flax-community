@@ -2,224 +2,298 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Section } from '../components/ui/Section';
 import { Button } from '../components/ui/Button';
-import { ArrowRight, Zap, Users, MessageSquare } from 'lucide-react';
+import { AvatarGroup, CommunityNetwork } from '../components/AvatarGroup';
+import { ArrowRight, Users, MessageSquare, Award, Sparkles } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative py-20 md:py-28 px-6 bg-paper overflow-hidden">
+    <section className="relative py-16 md:py-24 px-6 bg-paper overflow-hidden">
       
-      {/* Subtle crosshatch pattern - unique to Flax */}
+      {/* Crosshatch pattern */}
       <div className="absolute inset-0 crosshatch-pattern pointer-events-none"></div>
       
       {/* Flax purple accent line */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-flax via-flax-light to-flax"></div>
 
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-5xl mx-auto">
         
-        {/* Badge with Flax purple */}
-        <div className="mb-10 flex justify-center">
-          <span className="font-mono text-xs uppercase tracking-widest px-4 py-2 bg-flax-muted text-flax border border-flax/20 inline-block">
-            ✦ A Community for Builders
-          </span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left: Content */}
+          <div>
+            {/* Community Badge with Avatars */}
+            <div className="mb-8 flex items-center gap-4">
+              <AvatarGroup count={4} size="sm" showPlus={false} />
+              <span className="font-mono text-xs uppercase tracking-widest text-flax">
+                Join 25 Senior Engineers
+              </span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight leading-[1.1] mb-6 text-ink">
+              A Community of<br/>
+              <span className="italic flax-underline">AI Builders</span>
+            </h1>
+
+            {/* Subhead */}
+            <p className="font-mono text-sm md:text-base max-w-lg leading-relaxed mb-8 text-ink/70">
+              Real conversations with senior engineers about how they work, lead, and ship in the AI era. Learn from peers. Share your story. Grow together.
+            </p>
+
+            {/* Social Proof */}
+            <div className="flex items-center gap-6 mb-8 py-4 border-y border-ink/10">
+              <div className="text-center">
+                <span className="block font-serif text-2xl font-bold text-flax">25</span>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-ink/50">Contributors</span>
+              </div>
+              <div className="w-px h-8 bg-ink/10"></div>
+              <div className="text-center">
+                <span className="block font-serif text-2xl font-bold text-ink">4</span>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-ink/50">Disciplines</span>
+              </div>
+              <div className="w-px h-8 bg-ink/10"></div>
+              <div className="text-center">
+                <span className="block font-serif text-2xl font-bold text-ink">1</span>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-ink/50">Community</span>
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link to="/ai-impact-contributors">
+                <Button variant="flax" size="lg">
+                  Join the Community
+                </Button>
+              </Link>
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={() => document.getElementById('community')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                See Who's Inside
+              </Button>
+            </div>
+          </div>
+          
+          {/* Right: Community Network Visualization */}
+          <div className="hidden lg:block relative h-[400px]">
+            <CommunityNetwork className="absolute inset-0" />
+            
+            {/* Floating avatars around the network */}
+            <div className="absolute top-8 left-12 animate-float">
+              <div className="w-14 h-14 bg-flax rounded-full flex items-center justify-center text-paper font-mono font-bold border-4 border-paper shadow-lg">
+                DE
+              </div>
+            </div>
+            <div className="absolute top-20 right-8 animate-float-delayed">
+              <div className="w-12 h-12 bg-ink rounded-full flex items-center justify-center text-paper font-mono font-bold border-4 border-paper shadow-lg">
+                ML
+              </div>
+            </div>
+            <div className="absolute bottom-24 left-8 animate-float-delayed-2">
+              <div className="w-11 h-11 bg-flax-light rounded-full flex items-center justify-center text-paper font-mono font-bold border-4 border-paper shadow-lg">
+                AE
+              </div>
+            </div>
+            <div className="absolute bottom-12 right-16 animate-float">
+              <div className="w-12 h-12 bg-ink/80 rounded-full flex items-center justify-center text-paper font-mono font-bold border-4 border-paper shadow-lg">
+                PI
+              </div>
+            </div>
+          </div>
         </div>
-
-        {/* Main Headline */}
-        <h1 className="text-center text-4xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight leading-[1.1] mb-8 text-ink">
-          Empowering Engineers<br/>
-          in the <span className="italic flax-underline">AI Era</span>
-        </h1>
-
-        {/* Subhead */}
-        <p className="text-center font-mono text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-12 text-ink/70">
-          Real conversations with senior engineers about how they work, lead, and ship as AI becomes part of everyday engineering. No theory — just real stories.
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/ai-impact-contributors">
-            <Button variant="flax" size="lg">
-              Become a Contributor
-            </Button>
-          </Link>
-          <Button 
-            variant="outline" 
-            size="lg"
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Learn More
-          </Button>
-        </div>
-      </div>
-
-      {/* Handwritten note - unique style */}
-      <div className="absolute bottom-12 right-12 hidden lg:block hand-wiggle">
-        <p className="font-hand text-2xl text-flax transform rotate-[-8deg]">
-          Only 25 spots! →
-        </p>
       </div>
     </section>
   );
 };
 
-const About: React.FC = () => {
-  const features = [
-    { 
-      icon: Zap,
-      title: "Ship Faster",
-      description: "How top engineers are 10x-ing output with AI tooling — without sacrificing quality." 
-    },
-    { 
-      icon: Users,
-      title: "Lead Differently",
-      description: "New collaboration patterns for teams where AI is a force multiplier." 
-    },
-    { 
-      icon: MessageSquare,
-      title: "Real Stories",
-      description: "Not theory. Real workflows, real decisions, real results from senior engineers." 
-    },
+const CommunityWall: React.FC = () => {
+  // Placeholder contributors - would be real data
+  const contributors = [
+    { initials: 'AK', role: 'Data Engineer', company: 'Series B Startup' },
+    { initials: 'SJ', role: 'ML Engineer', company: 'Big Tech' },
+    { initials: 'MP', role: 'Analytics Lead', company: 'Fintech' },
+    { initials: 'RK', role: 'Platform Eng', company: 'Healthcare AI' },
+    { initials: 'LT', role: 'Staff Engineer', company: 'E-commerce' },
+    { initials: 'NB', role: 'AI/ML Lead', company: 'Autonomous' },
+    { initials: '??', role: 'Could be you', company: 'Your Company', isPlaceholder: true },
+    { initials: '??', role: 'Could be you', company: 'Your Company', isPlaceholder: true },
   ];
 
   return (
-    <Section id="about" className="bg-paper border-t-2 border-ink">
+    <Section id="community" className="bg-flax-muted/30 border-t-2 border-ink">
       <div className="max-w-5xl mx-auto">
         
-        {/* Section Header */}
-        <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-flax block mb-3">Why This Matters</span>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink leading-tight">
-              AI is changing how<br/>engineers work.
-            </h2>
-          </div>
-          <p className="font-mono text-sm text-ink/60 max-w-sm leading-relaxed">
-            The playbook hasn't been written yet. We're documenting it — one story at a time.
+        <div className="text-center mb-12">
+          <span className="font-mono text-xs uppercase tracking-widest text-flax block mb-3">
+            <Users className="inline w-4 h-4 mr-2" />
+            The Community
+          </span>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink mb-4">
+            Engineers Just Like You
+          </h2>
+          <p className="font-mono text-sm text-ink/60 max-w-lg mx-auto">
+            Senior engineers from Data, ML, Analytics, and Platform — sharing real stories about working in the AI era.
           </p>
         </div>
 
-        {/* Feature Cards - different layout from MRP */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {features.map((feature, i) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {contributors.map((person, i) => (
             <div 
               key={i}
-              className="group p-8 bg-paper border-2 border-ink hover:border-flax hover:bg-flax-muted/30 transition-all duration-300"
+              className={`group p-6 text-center border-2 transition-all duration-300 ${
+                person.isPlaceholder 
+                  ? 'border-dashed border-flax/40 bg-paper hover:border-flax hover:bg-flax-muted/50' 
+                  : 'border-ink bg-paper hover:bg-ink hover:text-paper'
+              }`}
             >
-              <div className="w-12 h-12 bg-flax/10 border border-flax/20 flex items-center justify-center mb-6 group-hover:bg-flax group-hover:border-flax transition-colors">
-                <feature.icon className="w-6 h-6 text-flax group-hover:text-paper transition-colors" />
+              <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center font-mono font-bold text-lg ${
+                person.isPlaceholder 
+                  ? 'bg-flax-muted text-flax border-2 border-dashed border-flax/40 group-hover:bg-flax group-hover:text-paper group-hover:border-solid' 
+                  : 'bg-flax text-paper group-hover:bg-paper group-hover:text-flax'
+              } transition-colors`}>
+                {person.initials}
               </div>
-              
-              <h3 className="font-serif text-xl font-bold mb-3 text-ink">{feature.title}</h3>
-              <p className="font-mono text-sm text-ink/70 leading-relaxed">
-                {feature.description}
-              </p>
+              <span className="block font-mono text-sm font-semibold mb-1">
+                {person.role}
+              </span>
+              <span className="block font-mono text-xs opacity-50">
+                {person.company}
+              </span>
             </div>
           ))}
         </div>
-      </div>
-    </Section>
-  );
-};
 
-const FeaturedCampaign: React.FC = () => {
-  return (
-    <Section className="bg-flax-muted/50 border-t-2 border-ink">
-      <div className="max-w-5xl mx-auto">
-        <div className="bg-paper border-2 border-ink p-8 md:p-12 relative overflow-hidden">
-          
-          {/* Purple accent corner */}
-          <div className="absolute top-0 right-0 w-24 h-24 bg-flax"></div>
-          <div className="absolute top-4 right-4 text-paper font-mono text-xs uppercase tracking-widest transform rotate-45 origin-center">
-            Edition 1
-          </div>
-          
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
-            
-            <div className="md:col-span-3">
-              <span className="inline-block font-mono text-xs uppercase tracking-widest text-flax mb-4">
-                Featured Campaign
-              </span>
-              
-              <h3 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-ink leading-tight">
-                AI Impact Contributors
-              </h3>
-              
-              <p className="font-mono text-sm text-ink/70 mb-6 leading-relaxed">
-                A limited spotlight on senior Data/AI engineers shaping how teams work in the age of AI. 
-                Share your story. Get featured. Earn your badge.
-              </p>
-              
-              <div className="flex flex-wrap gap-2 mb-8">
-                {['Data Engineering', 'ML/AI', 'Analytics', 'Platform'].map((tag) => (
-                  <span key={tag} className="px-3 py-1 bg-ink/5 border border-ink/10 font-mono text-xs text-ink/80">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              
-              <Link to="/ai-impact-contributors">
-                <Button variant="flax" className="group">
-                  Grab Your Spot 
-                  <ArrowRight className="inline ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </div>
-            
-            <div className="md:col-span-2 flex justify-center">
-              {/* Badge Preview - unique design */}
-              <div className="relative">
-                <div className="w-40 h-48 bg-ink text-paper p-6 flex flex-col items-center justify-center text-center">
-                  <div className="w-10 h-10 border-2 border-flax rounded-full flex items-center justify-center mb-4">
-                    <span className="text-flax text-lg">✦</span>
-                  </div>
-                  <span className="font-mono text-[10px] uppercase tracking-widest opacity-60 mb-2">Badge</span>
-                  <span className="font-serif text-lg font-bold leading-tight">AI Impact</span>
-                  <span className="font-serif italic">Contributor</span>
-                </div>
-                {/* Offset shadow */}
-                <div className="absolute -bottom-2 -right-2 w-full h-full bg-flax -z-10"></div>
-              </div>
-            </div>
-          </div>
+        <div className="text-center mt-10">
+          <Link to="/ai-impact-contributors">
+            <Button variant="flax" className="group">
+              Claim Your Spot
+              <ArrowRight className="inline ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </div>
       </div>
     </Section>
   );
 };
 
-const Stats: React.FC = () => {
-  const stats = [
-    { value: "25", label: "Contributors", sub: "Edition 1" },
-    { value: "20", label: "Minutes", sub: "Per conversation" },
-    { value: "1", label: "Badge", sub: "LinkedIn-ready" },
+const WhyJoin: React.FC = () => {
+  const reasons = [
+    { 
+      icon: MessageSquare,
+      title: "Share Your Story",
+      description: "20-minute conversation about how AI has changed your work. No prep needed." 
+    },
+    { 
+      icon: Users,
+      title: "Join Your Peers",
+      description: "Connect with 25 senior engineers who are figuring this out alongside you." 
+    },
+    { 
+      icon: Award,
+      title: "Get Recognized",
+      description: "Earn your AI Impact Contributor badge. Share it on LinkedIn." 
+    },
   ];
 
   return (
     <Section className="bg-paper border-t-2 border-ink">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="font-mono text-xs uppercase tracking-widest text-flax block mb-3">The Format</span>
-          <h2 className="font-serif text-2xl md:text-3xl font-bold text-ink">
-            Simple. Authentic. Impactful.
+      <div className="max-w-5xl mx-auto">
+        
+        <div className="mb-12">
+          <span className="font-mono text-xs uppercase tracking-widest text-flax block mb-3">Why Join</span>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink">
+            Built by engineers,<br/>for engineers.
           </h2>
         </div>
-        
-        <div className="grid grid-cols-3 gap-4 md:gap-8">
-          {stats.map((stat, i) => (
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {reasons.map((reason, i) => (
             <div 
               key={i}
-              className="text-center p-6 md:p-8 border-2 border-ink hover:bg-ink hover:text-paper transition-colors duration-300 group"
+              className="group p-8 bg-paper border-2 border-ink hover:border-flax transition-all duration-300"
             >
-              <span className="block font-serif text-4xl md:text-5xl font-bold text-flax group-hover:text-flax-light transition-colors mb-2">
-                {stat.value}
-              </span>
-              <span className="block font-mono text-sm uppercase tracking-wider mb-1">
-                {stat.label}
-              </span>
-              <span className="block font-mono text-xs opacity-50">
-                {stat.sub}
-              </span>
+              <div className="w-12 h-12 bg-flax-muted border border-flax/20 flex items-center justify-center mb-6 group-hover:bg-flax transition-colors">
+                <reason.icon className="w-6 h-6 text-flax group-hover:text-paper transition-colors" />
+              </div>
+              
+              <h3 className="font-serif text-xl font-bold mb-3 text-ink">{reason.title}</h3>
+              <p className="font-mono text-sm text-ink/70 leading-relaxed">
+                {reason.description}
+              </p>
             </div>
           ))}
+        </div>
+      </div>
+    </Section>
+  );
+};
+
+const CommunityQuote: React.FC = () => {
+  return (
+    <Section className="bg-ink text-paper border-t-2 border-ink">
+      <div className="max-w-3xl mx-auto text-center">
+        <Sparkles className="w-8 h-8 text-flax mx-auto mb-6" />
+        
+        <blockquote className="font-serif text-2xl md:text-3xl italic leading-relaxed mb-8">
+          "The best engineers are adapting to AI right now. We're capturing how — and building a community around it."
+        </blockquote>
+        
+        <div className="flex items-center justify-center gap-4">
+          <div className="w-12 h-12 bg-flax rounded-full flex items-center justify-center text-paper font-mono font-bold">
+            HP
+          </div>
+          <div className="text-left">
+            <span className="block font-mono text-sm font-semibold">Hari Prasad</span>
+            <span className="block font-mono text-xs opacity-60">Founder, Flax Community</span>
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+};
+
+const FinalCTA: React.FC = () => {
+  return (
+    <Section className="bg-paper border-t-2 border-ink">
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-flax text-paper p-8 md:p-12 text-center relative overflow-hidden">
+          
+          {/* Decorative avatars in corners */}
+          <div className="absolute top-4 left-4 opacity-20">
+            <div className="w-10 h-10 bg-paper/20 rounded-full"></div>
+          </div>
+          <div className="absolute top-8 right-12 opacity-20">
+            <div className="w-8 h-8 bg-paper/20 rounded-full"></div>
+          </div>
+          <div className="absolute bottom-6 left-16 opacity-20">
+            <div className="w-6 h-6 bg-paper/20 rounded-full"></div>
+          </div>
+          <div className="absolute bottom-4 right-4 opacity-20">
+            <div className="w-12 h-12 bg-paper/20 rounded-full"></div>
+          </div>
+          
+          <div className="relative z-10">
+            <AvatarGroup count={5} size="lg" showPlus={true} className="justify-center mb-6" />
+            
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
+              Join 25 Senior Engineers
+            </h2>
+            
+            <p className="font-mono text-sm opacity-80 max-w-md mx-auto mb-8">
+              Edition 1 is limited. Grab your spot and become part of the community shaping how engineers work with AI.
+            </p>
+            
+            <Link to="/ai-impact-contributors">
+              <Button 
+                variant="primary" 
+                size="lg"
+                className="bg-paper text-flax border-paper hover:bg-ink hover:text-paper hover:border-ink shadow-[3px_3px_0px_0px_#18181B]"
+              >
+                Become a Contributor
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </Section>
@@ -230,9 +304,10 @@ export const HomePage: React.FC = () => {
   return (
     <main className="bg-paper">
       <Hero />
-      <About />
-      <FeaturedCampaign />
-      <Stats />
+      <CommunityWall />
+      <WhyJoin />
+      <CommunityQuote />
+      <FinalCTA />
     </main>
   );
 };
