@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Section } from '../components/ui/Section';
 import { Button } from '../components/ui/Button';
+import { PeopleTalking } from '../components/PeopleIllustrations';
 import { ArrowRight, Zap, Users, MessageSquare } from 'lucide-react';
 
 const Hero: React.FC = () => {
@@ -49,6 +50,11 @@ const Hero: React.FC = () => {
             Learn More
           </Button>
         </div>
+      </div>
+
+      {/* Subtle people illustration - bottom left */}
+      <div className="absolute bottom-8 left-8 hidden lg:block opacity-[0.08] pointer-events-none">
+        <PeopleTalking className="w-32 h-24 text-ink" />
       </div>
 
       {/* Handwritten note - unique style */}
