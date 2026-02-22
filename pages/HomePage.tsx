@@ -148,7 +148,7 @@ const FeaturedCampaign: React.FC = () => {
               </p>
               
               <div className="flex flex-wrap gap-2 mb-8">
-                {['Data Engineering', 'ML/AI', 'Analytics', 'Platform'].map((tag) => (
+                {['Data Engineering', 'ML/AI', 'Software', 'Platform'].map((tag) => (
                   <span key={tag} className="px-3 py-1 bg-ink/5 border border-ink/10 font-mono text-xs text-ink/80">
                     {tag}
                   </span>

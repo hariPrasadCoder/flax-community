@@ -74,7 +74,7 @@ const WhoWeFeature: React.FC = () => {
   const roles = [
     { icon: Database, title: "Data Engineering", description: "Pipelines, orchestration, scaling" },
     { icon: Brain, title: "ML/AI Engineering", description: "Models, MLOps, production AI" },
-    { icon: BarChart3, title: "Analytics Engineering", description: "dbt, modeling, BI at scale" },
+    { icon: BarChart3, title: "Software Engineering", description: "Backend, frontend, full-stack" },
     { icon: Server, title: "Platform / Infra", description: "Tooling, infrastructure, platforms" },
   ];
 
