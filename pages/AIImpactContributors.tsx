@@ -1,6 +1,7 @@
 import React from 'react';
 import { Section } from '../components/ui/Section';
 import { Button } from '../components/ui/Button';
+import { AvatarMarquee } from '../components/AvatarMarquee';
 import { Check, Database, Brain, BarChart3, Server } from 'lucide-react';
 
 const Hero: React.FC = () => {
@@ -252,6 +253,7 @@ export const AIImpactContributors: React.FC = () => {
   return (
     <main className="bg-paper">
       <Hero />
+      <AvatarMarquee />
       <WhoWeFeature />
       <WhatWeCollect />
       <TheBadge />
