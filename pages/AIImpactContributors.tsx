@@ -45,9 +45,9 @@ const Hero: React.FC = () => {
           <Button 
             variant="flax" 
             size="lg"
-            data-cal-namespace="flax-community"
-            data-cal-link="hari-prasad/flax"
-            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+            data-tally-open="Np6voW"
+            data-tally-layout="modal"
+            data-tally-auto-close="4000"
           >
             Grab Your Spot
           </Button>
@@ -234,9 +234,9 @@ const FinalCTA: React.FC = () => {
           variant="outline"
           size="lg"
           className="!bg-paper !text-ink !border-paper hover:!bg-ink hover:!text-paper shadow-[3px_3px_0px_0px_#18181B]"
-          data-cal-namespace="flax-community"
-          data-cal-link="hari-prasad/flax"
-          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+          data-tally-open="Np6voW"
+          data-tally-layout="modal"
+          data-tally-auto-close="4000"
         >
           Claim a Spot (Edition 1)
         </Button>
