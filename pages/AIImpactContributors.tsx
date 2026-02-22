@@ -61,12 +61,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Handwritten note */}
-      <div className="absolute bottom-16 left-12 hidden lg:block hand-wiggle">
-        <p className="font-hand text-xl text-flax transform rotate-[5deg]">
-          ← 20 min chat, easy!
-        </p>
-      </div>
     </section>
   );
 };

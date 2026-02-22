@@ -51,12 +51,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Handwritten note - unique style */}
-      <div className="absolute bottom-12 right-12 hidden lg:block hand-wiggle">
-        <p className="font-hand text-2xl text-flax transform rotate-[-8deg]">
-          Only 25 spots! →
-        </p>
-      </div>
     </section>
   );
 };
