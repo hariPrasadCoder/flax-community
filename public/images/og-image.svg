@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FAF9F6"/>
+  
+  <!-- Purple accent line at top -->
+  <rect width="1200" height="8" fill="#453DC8"/>
+  
+  <!-- Logo -->
+  <g transform="translate(100, 200)">
+    <rect x="0" y="0" width="80" height="80" rx="16" fill="#453DC8"/>
+    <g fill="none" stroke="white" stroke-width="2">
+      <ellipse cx="40" cy="22" rx="8" ry="13" transform="rotate(0, 40, 40)"/>
+      <ellipse cx="40" cy="22" rx="8" ry="13" transform="rotate(72, 40, 40)"/>
+      <ellipse cx="40" cy="22" rx="8" ry="13" transform="rotate(144, 40, 40)"/>
+      <ellipse cx="40" cy="22" rx="8" ry="13" transform="rotate(216, 40, 40)"/>
+      <ellipse cx="40" cy="22" rx="8" ry="13" transform="rotate(288, 40, 40)"/>
+    </g>
+    <circle cx="40" cy="40" r="6" fill="white"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="100" y="340" font-family="serif" font-size="72" font-weight="bold" fill="#18181B">
+    Flax Community
+  </text>
+  <text x="100" y="420" font-family="serif" font-size="36" fill="#18181B" opacity="0.7">
+    Empowering Engineers in the AI Era
+  </text>
+  
+  <!-- Tagline -->
+  <text x="100" y="520" font-family="monospace" font-size="24" fill="#453DC8">
+    Join 25 Senior Engineers • Share Your Story • Get Recognized
+  </text>
+  
+  <!-- Border -->
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#18181B" stroke-width="4"/>
+</svg>
