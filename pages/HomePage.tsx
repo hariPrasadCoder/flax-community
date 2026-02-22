@@ -125,10 +125,11 @@ const FeaturedCampaign: React.FC = () => {
       <div className="max-w-5xl mx-auto">
         <div className="bg-paper border-2 border-ink p-8 md:p-12 relative overflow-hidden">
           
-          {/* Purple accent corner */}
-          <div className="absolute top-0 right-0 w-24 h-24 bg-flax"></div>
-          <div className="absolute top-4 right-4 text-paper font-mono text-xs uppercase tracking-widest transform rotate-45 origin-center">
-            Edition 1
+          {/* Purple accent corner with Edition 1 badge */}
+          <div className="absolute top-0 right-0 w-28 h-28 bg-flax flex items-start justify-end p-3">
+            <span className="text-paper font-mono text-xs uppercase tracking-widest">
+              Edition 1
+            </span>
           </div>
           
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
