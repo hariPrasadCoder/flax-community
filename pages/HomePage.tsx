@@ -189,7 +189,7 @@ const FeaturedCampaign: React.FC = () => {
 const Stats: React.FC = () => {
   const stats = [
     { value: "25", label: "Contributors", sub: "Edition 1" },
-    { value: "20", label: "Minutes", sub: "Per conversation" },
+    { value: "30", label: "Minutes", sub: "Per conversation" },
     { value: "1", label: "Badge", sub: "LinkedIn-ready" },
   ];
 

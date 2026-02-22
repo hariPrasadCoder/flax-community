@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
         
         {/* Handwritten note */}
         <p className="hidden md:block text-center font-hand text-xl text-flax mt-6 transform rotate-[2deg]">
-          ← Just a 20 min chat!
+          ← Just a 30 min chat!
         </p>
       </div>
 
@@ -158,7 +158,7 @@ const WhatWeCollect: React.FC = () => {
             <div className="space-y-8">
               <div>
                 <span className="font-mono text-xs uppercase tracking-widest text-flax-light block mb-2">Format</span>
-                <span className="font-serif text-2xl font-bold">20-minute conversation</span>
+                <span className="font-serif text-2xl font-bold">30-minute conversation</span>
               </div>
               
               <div>
@@ -226,7 +226,7 @@ const FinalCTA: React.FC = () => {
         </h2>
         
         <p className="font-mono text-sm max-w-lg mx-auto mb-10 opacity-80 leading-relaxed">
-          20 minutes. Your story. A public collection of real insights from builders setting the standard for this new era.
+          30 minutes. Your story. A public collection of real insights from builders setting the standard for this new era.
         </p>
         
         <Button 
