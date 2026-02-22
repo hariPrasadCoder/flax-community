@@ -231,9 +231,9 @@ const FinalCTA: React.FC = () => {
         </p>
         
         <Button 
-          variant="primary"
+          variant="outline"
           size="lg"
-          className="bg-paper text-flax border-paper hover:bg-ink hover:text-paper hover:border-ink shadow-[3px_3px_0px_0px_#18181B]"
+          className="!bg-paper !text-ink !border-paper hover:!bg-ink hover:!text-paper shadow-[3px_3px_0px_0px_#18181B]"
           data-cal-namespace="flax-community"
           data-cal-link="hari-prasad/flax"
           data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
