@@ -1,7 +1,6 @@
 import React from 'react';
 import { Section } from '../components/ui/Section';
 import { Button } from '../components/ui/Button';
-import { PersonWaving } from '../components/PeopleIllustrations';
 import { Check, Database, Brain, BarChart3, Server } from 'lucide-react';
 
 const Hero: React.FC = () => {
@@ -60,11 +59,6 @@ const Hero: React.FC = () => {
             See Details
           </Button>
         </div>
-      </div>
-
-      {/* Subtle person illustration - bottom right */}
-      <div className="absolute bottom-8 right-8 hidden lg:block opacity-[0.08] pointer-events-none">
-        <PersonWaving className="w-20 h-28 text-ink" />
       </div>
 
       {/* Handwritten note */}
