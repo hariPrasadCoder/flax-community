@@ -31,6 +31,7 @@ export const Footer: React.FC = () => {
       {/* Footer Links */}
       <div className="container mx-auto px-6 max-w-7xl pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-2">
+          <img src="/images/flax_logo.svg" alt="Flax" className="w-6 h-6" />
           <span className="text-white font-semibold text-lg">Flax Community</span>
         </div>
          
