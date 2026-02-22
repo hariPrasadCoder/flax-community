@@ -1,37 +1,30 @@
 import React, { ButtonHTMLAttributes, forwardRef } from 'react';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', children, ...props }, ref) => {
+  ({ className = '', variant = 'primary', size = 'md', children, ...props }, ref) => {
+    const baseStyles = 'font-mono uppercase tracking-widest transition-all duration-200 cursor-pointer inline-block text-center';
+    
+    const variants = {
+      primary: 'bg-ink text-paper border border-ink hover:bg-paper hover:text-ink shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]',
+      outline: 'bg-transparent text-ink border border-ink hover:bg-ink hover:text-paper',
+      ghost: 'bg-transparent text-ink hover:underline decoration-1 underline-offset-4',
+    };
+
+    const sizes = {
+      sm: 'px-4 py-2 text-xs',
+      md: 'px-6 py-3 text-sm',
+      lg: 'px-8 py-4 text-base font-bold',
+    };
+
     return (
       <button
         ref={ref}
-        className={cn(
-          'inline-flex items-center justify-center rounded-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary/50 disabled:opacity-50 disabled:pointer-events-none cursor-pointer',
-          {
-            'bg-white text-black hover:bg-brand-accent hover:text-black shadow-[0_0_20px_rgba(255,255,255,0.1)]':
-              variant === 'primary',
-            'bg-brand-card text-white hover:bg-brand-terminal border border-white/10':
-              variant === 'secondary',
-            'border border-white/20 text-white hover:bg-white/5 hover:border-white/40':
-              variant === 'outline',
-            'text-brand-text hover:text-white': variant === 'ghost',
-            'h-9 px-4 text-xs tracking-widest uppercase': size === 'sm',
-            'h-11 px-6 text-sm tracking-widest uppercase': size === 'md',
-            'h-14 px-8 text-sm tracking-widest uppercase font-semibold': size === 'lg',
-          },
-          className
-        )}
+        className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
         {...props}
       >
         {children}
@@ -42,4 +35,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = 'Button';
 
-export { Button, cn };
+export { Button };

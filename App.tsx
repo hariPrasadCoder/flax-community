@@ -16,14 +16,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="bg-background min-h-screen text-white selection:bg-primary selection:text-white overflow-x-hidden">
+      <div className="min-h-screen bg-paper text-ink font-serif selection:bg-ink selection:text-paper">
         <Navbar />
-        <main className="overflow-x-hidden">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/ai-impact-contributors" element={<AIImpactContributors />} />
-          </Routes>
-        </main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/ai-impact-contributors" element={<AIImpactContributors />} />
+        </Routes>
         <Footer />
       </div>
     </BrowserRouter>

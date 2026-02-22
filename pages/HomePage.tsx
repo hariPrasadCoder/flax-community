@@ -1,99 +1,78 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Section } from '../components/ui/Section';
 import { Button } from '../components/ui/Button';
-import { Users, Lightbulb, Zap, MessageSquare, Terminal, Globe, Cpu, ArrowRight, Check } from 'lucide-react';
-import Particles from '../components/Particles';
+import { ArrowDownRight, ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden bg-brand-dark">
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
+    <section className="relative py-16 md:py-24 px-6 flex flex-col items-center justify-center text-center bg-paper overflow-hidden border-b border-ink">
       
-      {/* Floating Particles */}
-      <Particles particleCount={60} className="z-[2] opacity-60" />
-
-      {/* Ambient Glow */}
-      <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-brand-primary/8 rounded-full blur-[150px] pointer-events-none" />
-
-      {/* HUD Elements */}
-      <div className="absolute top-32 left-10 hidden lg:flex flex-col gap-4 opacity-30">
-        <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest text-brand-accent">
-          <Terminal size={12} />
-          <span>COMMUNITY_ACTIVE</span>
-        </div>
-        <div className="w-px h-20 bg-gradient-to-b from-brand-accent to-transparent" />
+      {/* Background Dot Pattern */}
+      <div className="absolute top-0 left-0 w-full h-full dot-pattern pointer-events-none" 
+           style={{ backgroundImage: 'radial-gradient(#1A1A1A 1px, transparent 1px)', backgroundSize: '20px 20px', opacity: 0.03 }}>
       </div>
 
-      <div className="absolute top-32 right-10 hidden lg:flex flex-col gap-4 items-end opacity-30">
-        <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest text-brand-accent">
-          <span>25_CONTRIBUTORS</span>
-          <Globe size={12} />
-        </div>
-        <div className="w-px h-20 bg-gradient-to-b from-brand-accent to-transparent" />
-      </div>
-
-      <div className="container relative z-10 mx-auto px-4 flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-4xl mx-auto">
         
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-10"
-        >
-          <div className="inline-flex items-center gap-3 pl-2 pr-4 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-md group cursor-default">
-            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-brand-primary/20 text-brand-primary">
-              <Cpu size={12} />
-            </span>
-            <span className="text-xs font-mono tracking-wider text-brand-text uppercase">
-              A Community for <span className="text-brand-accent">Builders</span>
-            </span>
-          </div>
-        </motion.div>
+        {/* Top Badge */}
+        <div className="mb-8">
+          <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] border border-ink px-4 py-2 inline-block hover:bg-ink hover:text-paper transition-colors">
+            A Community for Builders
+          </span>
+        </div>
 
-        {/* Main Typography */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-4xl mx-auto mb-16 relative"
-        >
-          {/* Decorative Brackets */}
-          <span className="absolute -left-8 top-0 text-6xl font-thin text-white/5 hidden md:block font-mono">{'{'}</span>
-          <span className="absolute -right-8 top-0 text-6xl font-thin text-white/5 hidden md:block font-mono">{'}'}</span>
+        {/* Main Headline */}
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight leading-[0.95] mb-8 uppercase text-ink">
+          Empowering<br />
+          Engineers in the<br />
+          <span className="italic font-normal">AI Era.</span>
+        </h1>
 
-          <h1 className="text-5xl md:text-7xl font-medium leading-[1.1] mb-8 tracking-tight font-display text-white">
-            Empowering Engineers <br />
-            <span className="relative inline-block">
-              <span className="absolute inset-0 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary blur-2xl opacity-30" />
-              <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-white via-brand-accent to-white font-semibold">
-                in the AI Era
-              </span>
-            </span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-brand-text/80 mb-12 max-w-xl mx-auto leading-relaxed font-light tracking-wide">
-            Real conversations with senior engineers about how they work, lead, and ship as AI becomes part of everyday engineering.
+        {/* Info Bar */}
+        <div className="w-full border-y border-ink py-4 mb-10 max-w-3xl mx-auto bg-paper">
+          <p className="font-mono text-[10px] md:text-sm uppercase tracking-wider flex flex-col md:flex-row justify-center items-center gap-2 md:gap-0">
+            <span>Real Stories</span>
+            <span className="hidden md:inline mx-4 opacity-30">////</span>
+            <span>Senior Engineers</span>
+            <span className="hidden md:inline mx-4 opacity-30">////</span>
+            <span>Data & AI</span>
           </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link to="/ai-impact-contributors">
-              <Button size="lg">
-                Become a Contributor
-              </Button>
-            </Link>
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Learn More
+        </div>
+
+        {/* Description */}
+        <p className="font-mono text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-10 opacity-80">
+          Real conversations with senior engineers about how they work, lead, and ship as AI becomes part of everyday engineering. No theory — just real workflows and decisions.
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link to="/ai-impact-contributors">
+            <Button variant="primary" size="lg">
+              Become a Contributor
             </Button>
-          </div>
-        </motion.div>
+          </Link>
+          <Button 
+            variant="outline" 
+            size="lg"
+            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Learn More
+          </Button>
+        </div>
+      </div>
+
+      {/* Handwritten Annotation */}
+      <div className="absolute bottom-8 right-8 hidden lg:block hand-drawn">
+        <div className="relative">
+          <svg className="w-10 h-10 text-ink transform rotate-[160deg]" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M60,80 C30,70 10,40 25,10" />
+            <path d="M15,20 L25,10 L35,25" />
+          </svg>
+          <p className="font-hand text-lg leading-tight absolute -top-8 -left-24 w-32 transform -rotate-6">
+            25 spots only!
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -102,171 +81,157 @@ const Hero: React.FC = () => {
 const About: React.FC = () => {
   const features = [
     { 
-      icon: Zap, 
-      title: "Ship Faster",
-      text: "How top engineers are 10x-ing output with AI tooling — without sacrificing quality." 
+      number: "01",
+      title: "SHIP FASTER",
+      description: "How top engineers are 10x-ing output with AI tooling — without sacrificing quality or burning out." 
     },
     { 
-      icon: Users, 
-      title: "Lead Differently",
-      text: "New collaboration patterns for teams where AI is a force multiplier." 
+      number: "02",
+      title: "LEAD DIFFERENTLY",
+      description: "New collaboration patterns for teams where AI is a force multiplier, not just another tool." 
     },
     { 
-      icon: MessageSquare, 
-      title: "Real Stories",
-      text: "Not theory. Real workflows, real decisions, real results from senior engineers." 
+      number: "03",
+      title: "REAL STORIES",
+      description: "Not theory. Real workflows, real decisions, real results from senior engineers in the trenches." 
     },
-    { 
-      icon: Lightbulb, 
-      title: "Set the Standard",
-      text: "The engineers who adapt first will define how the industry works for the next decade." 
-    }
   ];
 
   return (
-    <Section id="about" className="bg-brand-dark relative border-t border-white/5">
-      {/* Background */}
-      <div className="absolute inset-0 bg-dot-pattern opacity-30 pointer-events-none" />
-      
-      <div className="relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-brand-primary font-mono text-xs tracking-widest uppercase mb-4 block">
-              The New Era
-            </span>
-            <h2 className="text-4xl md:text-6xl font-display font-medium text-white leading-tight">
-              AI is Changing How <br />
-              <span className="text-white/40">Engineers Work.</span>
-            </h2>
-          </motion.div>
-          
-          <motion.p 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-brand-text max-w-sm leading-relaxed"
-          >
-            Build faster. Ship more. Collaborate differently. The playbook hasn't been written yet. We're documenting it — one story at a time.
-          </motion.p>
+    <Section id="about" className="bg-paper" noBorder>
+      <div className="border border-ink">
+        <div className="border-b border-ink p-6 md:p-8">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold uppercase">Why This Matters</h2>
+          <p className="font-mono text-sm mt-2 opacity-70">AI is changing how engineers work. We're documenting it.</p>
         </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((item, i) => (
-            <motion.div 
+        
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          {features.map((feature, i) => (
+            <div 
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="relative bg-brand-card/60 border border-white/5 p-8 hover:border-brand-primary/30 transition-all duration-300 group tech-corner"
+              className={`p-6 md:p-8 ${i < features.length - 1 ? 'border-b md:border-b-0 md:border-r border-ink' : ''} flex flex-col gap-4 hover:bg-ink hover:text-paper transition-colors duration-300 group`}
             >
-              <div className="w-12 h-12 rounded-sm bg-brand-primary/10 flex items-center justify-center mb-6 text-brand-primary group-hover:bg-brand-primary/20 transition-colors">
-                <item.icon size={24} />
+              <div className="flex justify-between items-start">
+                <span className="font-mono text-xl font-bold">({feature.number})</span>
+                <ArrowDownRight className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-              <h3 className="text-white text-xl font-semibold mb-3 font-display">{item.title}</h3>
-              <p className="text-brand-text/80 leading-relaxed text-sm">{item.text}</p>
-            </motion.div>
+              
+              <div>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold mb-3 tracking-tight leading-none">{feature.title}</h3>
+                <p className="font-mono text-sm leading-relaxed opacity-90 max-w-sm">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-20 border-l-2 border-brand-primary pl-8 py-2"
-        >
-          <p className="text-2xl md:text-3xl text-white font-light leading-relaxed mb-2 font-display">
-            The best engineers are adapting.
-          </p>
-          <p className="text-2xl md:text-3xl text-brand-accent font-medium font-display">
-            We're capturing how.
-          </p>
-        </motion.div>
       </div>
     </Section>
   );
 };
 
 const FeaturedCampaign: React.FC = () => {
-  const roles = ['Data Engineering', 'ML/AI Engineering', 'Analytics Engineering', 'Platform/Infra'];
-  
   return (
-    <Section className="bg-brand-dark relative">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="relative"
-      >
-        <div className="relative overflow-hidden border border-white/10 bg-gradient-to-br from-brand-card via-brand-card to-brand-primary/10 p-8 md:p-12 tech-corner">
-          
-          {/* Decorative glow */}
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-primary/10 rounded-full blur-[120px] pointer-events-none" />
-          
-          <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center px-3 py-1.5 rounded-sm bg-brand-primary/20 border border-brand-primary/30 text-brand-accent text-xs font-mono tracking-widest uppercase mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-accent mr-2 animate-pulse"></span>
-                Edition 1 • 25 Spots
-              </div>
+    <Section className="bg-paper">
+      <div className="border border-ink">
+        <article className="hover:bg-ink/5 transition-colors">
+          <Link to="/ai-impact-contributors" className="block p-8 md:p-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               
-              <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-                AI Impact <br />Contributors
-              </h2>
-              
-              <p className="text-brand-text max-w-lg mb-8 leading-relaxed">
-                A spotlight on senior Data/AI engineers shaping how teams work in the age of AI. Share your story. Get featured. Earn your badge.
-              </p>
-              
-              <div className="flex flex-wrap gap-2 mb-8">
-                {roles.map((tag) => (
-                  <span key={tag} className="px-3 py-1.5 bg-white/5 border border-white/10 text-xs font-mono text-brand-text uppercase tracking-wider">
-                    {tag}
+              <div>
+                <div className="flex gap-3 mb-6">
+                  <span className="inline-block px-3 py-1 border border-ink font-mono text-xs uppercase bg-ink text-paper">
+                    Edition 1
                   </span>
-                ))}
+                  <span className="inline-block px-3 py-1 border border-ink font-mono text-xs uppercase">
+                    25 Spots
+                  </span>
+                </div>
+                
+                <h3 className="font-serif text-4xl md:text-5xl font-bold mb-4 leading-tight uppercase">
+                  AI Impact<br />Contributors
+                </h3>
+                
+                <p className="font-mono text-sm mb-6 opacity-70">
+                  A limited spotlight on senior Data/AI engineers shaping how teams work in the age of AI.
+                </p>
+                
+                <p className="font-serif text-base leading-relaxed mb-8">
+                  Share your story. Get featured. Earn your badge. We're documenting stories from 25 Senior Engineers on how they work, lead, and ship.
+                </p>
+                
+                <span className="font-mono text-sm uppercase tracking-widest border-t border-ink pt-4 inline-flex items-center gap-2 opacity-70 group-hover:opacity-100">
+                  Grab Your Spot <ArrowRight className="w-4 h-4" />
+                </span>
               </div>
               
-              <Link to="/ai-impact-contributors">
-                <Button size="lg" className="group">
-                  Grab Your Spot
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </div>
-            
-            <div className="hidden md:flex justify-center">
-              <div className="relative">
-                {/* Badge Preview */}
-                <div className="w-48 h-48 bg-gradient-to-br from-brand-primary/20 via-brand-card to-brand-secondary/20 border border-white/10 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-3 rounded-sm bg-brand-primary/20 flex items-center justify-center">
-                      <Cpu className="w-8 h-8 text-brand-accent" />
-                    </div>
-                    <span className="text-[10px] font-mono text-brand-text uppercase tracking-widest block">AI Impact</span>
-                    <span className="text-sm font-semibold text-white">Contributor</span>
+              <div className="hidden md:flex justify-center items-center">
+                <div className="relative">
+                  {/* Badge Preview */}
+                  <div className="w-48 h-48 border-2 border-ink flex flex-col items-center justify-center text-center p-6 bg-paper">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] mb-2 opacity-60">Badge</span>
+                    <span className="font-serif text-2xl font-bold uppercase leading-tight">AI Impact</span>
+                    <span className="font-serif text-lg italic">Contributor</span>
+                    <div className="w-12 h-px bg-ink mt-4 mb-2"></div>
+                    <span className="font-mono text-[10px] uppercase tracking-widest opacity-50">Edition 1</span>
                   </div>
+                  
+                  {/* Decorative Corner */}
+                  <div className="absolute -top-2 -right-2 w-4 h-4 bg-ink"></div>
+                  <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-ink"></div>
                 </div>
-                {/* Glow */}
-                <div className="absolute -inset-8 bg-brand-primary/10 rounded-full blur-3xl -z-10 animate-pulse-slow" />
               </div>
             </div>
+          </Link>
+        </article>
+      </div>
+    </Section>
+  );
+};
+
+const Metrics: React.FC = () => {
+  const stats = [
+    { value: "25", label: "Contributors", description: "Spots for Edition 1" },
+    { value: "20", label: "Minutes", description: "Per conversation" },
+    { value: "∞", label: "Value", description: "Real stories, real impact" },
+  ];
+
+  return (
+    <Section className="bg-paper">
+      <div className="text-center mb-8 md:mb-12">
+        <h2 className="font-serif text-3xl md:text-4xl font-bold uppercase mb-4">The Format</h2>
+        <p className="font-mono text-sm uppercase tracking-wider opacity-70">Simple. Authentic. Impactful.</p>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+        {stats.map((stat, i) => (
+          <div 
+            key={i}
+            className={`p-6 md:p-8 border border-ink ${i > 0 ? 'md:-ml-px' : ''} ${i > 0 ? '-mt-px md:mt-0' : ''} bg-paper flex flex-col items-center text-center hover:bg-ink hover:text-paper transition-colors duration-300 group`}
+          >
+            <span className="font-mono text-5xl md:text-6xl font-bold mb-4 group-hover:text-paper transition-colors">
+              {stat.value}
+            </span>
+            <h3 className="font-serif text-xl md:text-2xl font-bold mb-2 uppercase tracking-tight">
+              {stat.label}
+            </h3>
+            <p className="font-mono text-xs md:text-sm opacity-80 group-hover:opacity-90 leading-relaxed">
+              {stat.description}
+            </p>
           </div>
-        </div>
-      </motion.div>
+        ))}
+      </div>
     </Section>
   );
 };
 
 export const HomePage: React.FC = () => {
   return (
-    <>
+    <main className="border-x border-ink max-w-7xl mx-auto bg-paper">
       <Hero />
       <About />
       <FeaturedCampaign />
-    </>
+      <Metrics />
+    </main>
   );
 };

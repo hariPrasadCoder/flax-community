@@ -4,12 +4,16 @@ interface SectionProps {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  noBorder?: boolean;
 }
 
-export const Section: React.FC<SectionProps> = ({ children, className = "", id }) => {
+export const Section: React.FC<SectionProps> = ({ children, className = "", id, noBorder = false }) => {
   return (
-    <section id={id} className={`py-24 md:py-32 relative overflow-hidden ${className}`}>
-      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+    <section 
+      id={id} 
+      className={`py-12 md:py-16 px-6 ${!noBorder ? 'border-t border-ink' : ''} ${className}`}
+    >
+      <div className="max-w-6xl mx-auto">
         {children}
       </div>
     </section>
