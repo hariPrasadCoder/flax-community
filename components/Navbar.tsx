@@ -36,7 +36,7 @@ export const Navbar: React.FC = () => {
         `}>
           
           <Link to="/" className="flex items-center gap-2 group relative z-10 flex-shrink-0">
-            <img src="/images/flax_logo.svg" alt="Flax" className="w-7 h-7" />
+            <img src="/images/logo.svg" alt="Flax" className="w-7 h-7" />
             <span className="text-base md:text-lg font-semibold tracking-tight text-white transition-opacity">
               Flax Community
             </span>
