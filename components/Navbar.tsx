@@ -13,9 +13,7 @@ export const Navbar: React.FC = () => {
           
           <div className="flex items-center gap-4">
             <Link to="/" className="flex items-center gap-2 hover:opacity-70 transition-opacity">
-              <div className="w-6 h-6 bg-flax rounded-sm flex items-center justify-center">
-                <span className="text-paper text-xs font-mono font-bold">F</span>
-              </div>
+              <img src="/images/logo.svg" alt="Flax" className="w-7 h-7" />
               <span className="font-mono font-semibold text-sm tracking-tight uppercase">
                 Flax Community
               </span>

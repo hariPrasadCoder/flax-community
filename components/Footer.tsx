@@ -10,9 +10,7 @@ export const Footer: React.FC = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-flax rounded-sm flex items-center justify-center">
-                <span className="text-paper text-sm font-mono font-bold">F</span>
-              </div>
+              <img src="/images/logo.svg" alt="Flax" className="w-8 h-8" />
               <span className="font-mono font-semibold tracking-tight uppercase">
                 Flax Community
               </span>
