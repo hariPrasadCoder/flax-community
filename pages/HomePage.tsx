@@ -49,6 +49,11 @@ const Hero: React.FC = () => {
             Learn More
           </Button>
         </div>
+        
+        {/* Handwritten note */}
+        <p className="hidden md:block text-center font-hand text-xl text-flax mt-6 transform rotate-[-2deg]">
+          Only 25 spots! →
+        </p>
       </div>
 
     </section>
