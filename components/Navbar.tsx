@@ -8,39 +8,38 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className="sticky top-0 w-full z-50 border-b border-ink bg-paper">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center border-x border-ink">
+      <nav className="sticky top-0 w-full z-50 bg-paper border-b-2 border-ink">
+        <div className="max-w-6xl mx-auto px-6 h-14 flex justify-between items-center">
           
           <div className="flex items-center gap-4">
-            <Link to="/" className="font-mono font-bold text-xl tracking-tighter uppercase hover:opacity-70 transition-opacity">
-              FLAX_COMMUNITY
-            </Link>
-            <Link 
-              to="/ai-impact-contributors" 
-              className="hidden sm:inline-block font-mono text-[10px] border border-ink px-2 py-1 uppercase tracking-wider hover:bg-ink hover:text-paper transition-colors"
-            >
-              [ AI IMPACT ]
+            <Link to="/" className="flex items-center gap-2 hover:opacity-70 transition-opacity">
+              <div className="w-6 h-6 bg-flax rounded-sm flex items-center justify-center">
+                <span className="text-paper text-xs font-mono font-bold">F</span>
+              </div>
+              <span className="font-mono font-semibold text-sm tracking-tight uppercase">
+                Flax Community
+              </span>
             </Link>
           </div>
           
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-8">
             <Link 
               to="/" 
-              className={`font-mono text-xs uppercase tracking-widest hover:underline decoration-1 underline-offset-4 ${location.pathname === '/' ? 'underline' : ''}`}
+              className={`font-mono text-xs uppercase tracking-wider hover:text-flax transition-colors ${location.pathname === '/' ? 'text-flax' : 'text-ink'}`}
             >
               Home
             </Link>
             <Link 
               to="/ai-impact-contributors" 
-              className={`font-mono text-xs uppercase tracking-widest hover:underline decoration-1 underline-offset-4 ${location.pathname === '/ai-impact-contributors' ? 'underline' : ''}`}
+              className={`font-mono text-xs uppercase tracking-wider hover:text-flax transition-colors ${location.pathname === '/ai-impact-contributors' ? 'text-flax' : 'text-ink'}`}
             >
-              AI Impact Contributors
+              AI Impact
             </Link>
             <Link 
               to="/ai-impact-contributors"
-              className="px-6 py-2 text-sm font-mono font-bold uppercase bg-ink text-paper border border-ink hover:bg-paper hover:text-ink transition-colors"
+              className="px-5 py-2 text-xs font-mono font-semibold uppercase bg-flax text-paper border-2 border-flax hover:bg-paper hover:text-flax transition-colors"
             >
-              Contribute →
+              Join →
             </Link>
           </div>
 
@@ -55,25 +54,25 @@ export const Navbar: React.FC = () => {
       </nav>
 
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-paper pt-20 px-6 md:hidden border-x border-ink max-w-7xl mx-auto">
-          <div className="flex flex-col gap-6 pt-8">
+        <div className="fixed inset-0 z-40 bg-paper pt-16 px-6 md:hidden">
+          <div className="flex flex-col gap-6 pt-8 border-t-2 border-ink">
             <Link 
               to="/" 
-              className="font-serif text-3xl font-bold uppercase border-b border-ink pb-4"
+              className="font-serif text-2xl font-bold border-b border-ink/20 pb-4"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
             </Link>
             <Link 
               to="/ai-impact-contributors" 
-              className="font-serif text-3xl font-bold uppercase border-b border-ink pb-4"
+              className="font-serif text-2xl font-bold border-b border-ink/20 pb-4"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               AI Impact Contributors
             </Link>
             <Link 
               to="/ai-impact-contributors"
-              className="mt-4 px-8 py-4 text-lg font-mono font-bold uppercase bg-ink text-paper border border-ink text-center"
+              className="mt-4 px-6 py-4 text-base font-mono font-semibold uppercase bg-flax text-paper text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Become a Contributor →
