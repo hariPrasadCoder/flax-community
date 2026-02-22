@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
             <span className="font-mono text-xs uppercase tracking-widest opacity-40 mb-2">Navigate</span>
             <Link to="/" className="font-mono text-sm hover:text-flax-light transition-colors">Home</Link>
             <Link to="/ai-impact-contributors" className="font-mono text-sm hover:text-flax-light transition-colors">AI Impact Contributors</Link>
-            <a href="mailto:hello@flax.community" className="font-mono text-sm hover:text-flax-light transition-colors">Contact</a>
+            <a href="mailto:contact@joinflax.com" className="font-mono text-sm hover:text-flax-light transition-colors">Contact</a>
           </div>
           
           {/* CTA */}

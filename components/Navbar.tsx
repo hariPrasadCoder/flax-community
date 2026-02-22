@@ -33,12 +33,14 @@ export const Navbar: React.FC = () => {
             >
               AI Impact
             </Link>
-            <Link 
-              to="/ai-impact-contributors"
-              className="px-5 py-2 text-xs font-mono font-semibold uppercase bg-flax text-paper border-2 border-flax hover:bg-paper hover:text-flax transition-colors"
+            <button 
+              className="px-5 py-2 text-xs font-mono font-semibold uppercase bg-flax text-paper border-2 border-flax hover:bg-paper hover:text-flax transition-colors cursor-pointer"
+              data-tally-open="Np6voW"
+              data-tally-layout="modal"
+              data-tally-auto-close="4000"
             >
               Join →
-            </Link>
+            </button>
           </div>
 
           <button 
