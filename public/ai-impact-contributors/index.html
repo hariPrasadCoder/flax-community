@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Impact Contributors | Flax Community</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Join 25 senior Data/AI engineers sharing real stories about how they work, lead, and ship in the AI era. Get featured and earn your AI Impact Contributor badge." />
+    <meta name="keywords" content="AI engineers, data engineering, ML engineering, software engineering, AI community, senior engineers, tech community, AI Impact Contributors" />
+    <meta name="author" content="Flax Community" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://community.joinflax.com/ai-impact-contributors" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://community.joinflax.com/ai-impact-contributors" />
+    <meta property="og:title" content="AI Impact Contributors | Flax Community" />
+    <meta property="og:description" content="Join 25 senior Data/AI engineers sharing real stories about how they work, lead, and ship in the AI era. Get featured and earn your badge." />
+    <meta property="og:image" content="https://community.joinflax.com/images/og-image.svg" />
+    <meta property="og:site_name" content="Flax Community" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://community.joinflax.com/ai-impact-contributors" />
+    <meta name="twitter:title" content="AI Impact Contributors | Flax Community" />
+    <meta name="twitter:description" content="Join 25 senior Data/AI engineers sharing real stories about how they work in the AI era." />
+    <meta name="twitter:image" content="https://community.joinflax.com/images/og-image.svg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/images/logo-circle.svg" />
+    
+    <!-- Scripts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              paper: '#FAF9F6',
+              ink: '#18181B',
+              flax: '#453DC8',
+              'flax-light': '#6B63E8',
+              'flax-muted': '#E8E7F8',
+            },
+            fontFamily: {
+              serif: ['Fraunces', 'serif'],
+              mono: ['IBM Plex Mono', 'monospace'],
+              hand: ['Caveat', 'cursive'],
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      body {
+        background-color: #FAF9F6;
+        color: #18181B;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Subtle cross-hatch pattern (different from dots) */
+      .crosshatch-pattern {
+        background-image: 
+          linear-gradient(45deg, #453DC8 1px, transparent 1px),
+          linear-gradient(-45deg, #453DC8 1px, transparent 1px);
+        background-size: 16px 16px;
+        opacity: 0.02;
+      }
+
+      /* Flax purple underline accent */
+      .flax-underline {
+        background-image: linear-gradient(120deg, #453DC8 0%, #6B63E8 100%);
+        background-repeat: no-repeat;
+        background-size: 100% 0.15em;
+        background-position: 0 98%;
+      }
+
+      /* Selection with Flax purple */
+      ::selection {
+        background-color: #453DC8;
+        color: #FAF9F6;
+      }
+
+      /* Handwritten annotation animation */
+      @keyframes wiggle {
+        0%, 100% { transform: rotate(-2deg); }
+        50% { transform: rotate(2deg); }
+      }
+      .hand-wiggle {
+        animation: wiggle 4s ease-in-out infinite;
+      }
+
+      /* Avatar marquee animation */
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        animation: marquee 25s linear infinite;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
