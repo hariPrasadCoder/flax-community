@@ -1,43 +1,38 @@
 import React from 'react';
 
-const placeholderAvatars = [
-  { initials: 'JK', color: 'bg-flax' },
-  { initials: 'SM', color: 'bg-ink' },
-  { initials: 'AR', color: 'bg-flax-light' },
-  { initials: 'PL', color: 'bg-ink/80' },
-  { initials: 'MK', color: 'bg-flax' },
-  { initials: 'TS', color: 'bg-ink' },
-  { initials: 'RJ', color: 'bg-flax-light' },
-  { initials: 'NP', color: 'bg-ink/80' },
-  { initials: 'KW', color: 'bg-flax' },
-  { initials: 'AL', color: 'bg-ink' },
-  { initials: 'DM', color: 'bg-flax-light' },
-  { initials: 'YS', color: 'bg-ink/80' },
-  { initials: '?', color: 'bg-flax/50' },
-  { initials: '?', color: 'bg-flax/50' },
-  { initials: '?', color: 'bg-flax/50' },
+// Human silhouette SVG avatar
+const HumanAvatar: React.FC<{ color: string; isPlaceholder?: boolean }> = ({ color, isPlaceholder }) => (
+  <div className={`w-20 h-20 rounded-full flex-shrink-0 border-4 border-paper shadow-lg overflow-hidden ${isPlaceholder ? 'border-dashed border-flax/40' : ''} ${color}`}>
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      {/* Head */}
+      <circle cx="50" cy="35" r="18" fill="currentColor" className="text-paper/90" />
+      {/* Body/Shoulders */}
+      <ellipse cx="50" cy="85" rx="32" ry="28" fill="currentColor" className="text-paper/90" />
+    </svg>
+  </div>
+);
+
+const avatars = [
+  { color: 'bg-flax', isPlaceholder: false },
+  { color: 'bg-ink', isPlaceholder: false },
+  { color: 'bg-flax-light', isPlaceholder: false },
+  { color: 'bg-ink/80', isPlaceholder: false },
+  { color: 'bg-flax', isPlaceholder: false },
+  { color: 'bg-ink', isPlaceholder: false },
+  { color: 'bg-flax-light', isPlaceholder: false },
+  { color: 'bg-ink/80', isPlaceholder: false },
+  { color: 'bg-flax', isPlaceholder: false },
+  { color: 'bg-ink', isPlaceholder: false },
+  { color: 'bg-flax-light', isPlaceholder: false },
+  { color: 'bg-ink/80', isPlaceholder: false },
+  { color: 'bg-flax/30', isPlaceholder: true },
+  { color: 'bg-flax/30', isPlaceholder: true },
+  { color: 'bg-flax/30', isPlaceholder: true },
 ];
 
-const Avatar: React.FC<{ initials: string; color: string; size?: 'md' | 'lg' }> = ({ 
-  initials, 
-  color, 
-  size = 'lg' 
-}) => {
-  const sizeClasses = size === 'lg' ? 'w-20 h-20 text-2xl' : 'w-14 h-14 text-lg';
-  const isPlaceholder = initials === '?';
-  
-  return (
-    <div 
-      className={`${sizeClasses} ${color} rounded-full flex items-center justify-center font-mono font-bold text-paper flex-shrink-0 border-4 border-paper shadow-lg ${isPlaceholder ? 'border-dashed border-flax/40' : ''}`}
-    >
-      {initials}
-    </div>
-  );
-};
-
 export const AvatarMarquee: React.FC = () => {
-  // Double the avatars for seamless loop
-  const avatars = [...placeholderAvatars, ...placeholderAvatars];
+  // Double for seamless loop
+  const allAvatars = [...avatars, ...avatars];
   
   return (
     <div className="relative w-full overflow-hidden py-8 bg-flax-muted/30">
@@ -47,8 +42,8 @@ export const AvatarMarquee: React.FC = () => {
       
       {/* Marquee track */}
       <div className="flex gap-6 animate-marquee">
-        {avatars.map((avatar, i) => (
-          <Avatar key={i} initials={avatar.initials} color={avatar.color} />
+        {allAvatars.map((avatar, i) => (
+          <HumanAvatar key={i} color={avatar.color} isPlaceholder={avatar.isPlaceholder} />
         ))}
       </div>
       
